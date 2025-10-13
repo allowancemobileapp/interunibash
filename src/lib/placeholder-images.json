@@ -1,3 +1,106 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "A vibrant, energetic shot of a crowd at a music festival at night.",
+      "imageUrl": "https://picsum.photos/seed/hero-bg/1920/1080",
+      "imageHint": "festival crowd"
+    },
+    {
+      "id": "promo-1",
+      "description": "Students playing basketball.",
+      "imageUrl": "https://picsum.photos/seed/promo1/1080/720",
+      "imageHint": "students basketball"
+    },
+    {
+      "id": "promo-2",
+      "description": "A DJ performing on stage with lights.",
+      "imageUrl": "https://picsum.photos/seed/promo2/1080/720",
+      "imageHint": "DJ stage"
+    },
+    {
+      "id": "promo-3",
+      "description": "Friends laughing and enjoying an outdoor event.",
+      "imageUrl": "https://picsum.photos/seed/promo3/1080/720",
+      "imageHint": "friends event"
+    },
+    {
+      "id": "artist-1",
+      "description": "Portrait of DJ Spinall",
+      "imageUrl": "https://picsum.photos/seed/djspinall/500/500",
+      "imageHint": "male DJ"
+    },
+    {
+      "id": "artist-2",
+      "description": "Portrait of Wizkid",
+      "imageUrl": "https://picsum.photos/seed/wizkid/500/500",
+      "imageHint": "male singer"
+    },
+    {
+      "id": "artist-3",
+      "description": "Portrait of Tems",
+      "imageUrl": "https://picsum.photos/seed/tems/500/500",
+      "imageHint": "female singer"
+    },
+    {
+      "id": "artist-4",
+      "description": "Portrait of Burna Boy",
+      "imageUrl": "https://picsum.photos/seed/burnaboy/500/500",
+      "imageHint": "man sunglasses"
+    },
+    {
+      "id": "artist-5",
+      "description": "Portrait of Asake",
+      "imageUrl": "https://picsum.photos/seed/asake/500/500",
+      "imageHint": "man dreadlocks"
+    },
+    {
+      "id": "artist-6",
+      "description": "Portrait of Rema",
+      "imageUrl": "https://picsum.photos/seed/rema/500/500",
+      "imageHint": "young man"
+    },
+    {
+      "id": "about-organizers",
+      "description": "Logos of ArenaVibes and Detty December",
+      "imageUrl": "https://picsum.photos/seed/logos/600/400",
+      "imageHint": "company logos"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Photo from a past event, showing people dancing.",
+      "imageUrl": "https://picsum.photos/seed/gallery1/600/800",
+      "imageHint": "people dancing"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Photo from a past event, a football match.",
+      "imageUrl": "https://picsum.photos/seed/gallery2/800/600",
+      "imageHint": "football match"
+    },
+    {
+      "id": "gallery-3",
+      "description": "A wide shot of the event venue.",
+      "imageUrl": "https://picsum.photos/seed/gallery3/800/600",
+      "imageHint": "event venue"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Close up of an artist performing.",
+      "imageUrl": "https://picsum.photos/seed/gallery4/600/800",
+      "imageHint": "artist performing"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Attendees posing for a photo.",
+      "imageUrl": "https://picsum.photos/seed/gallery5/800/600",
+      "imageHint": "friends posing"
+    },
+    {
+      "id": "gallery-6",
+      "description": "Colorful stage lights.",
+      "imageUrl": "https://picsum.photos/seed/gallery6/600/800",
+      "imageHint": "stage lights"
+    }
+  ]
 }
