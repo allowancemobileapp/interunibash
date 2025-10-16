@@ -5,23 +5,20 @@ export const ticketTiers: TicketTier[] = [
     id: 'sports',
     name: 'Sports Pass',
     price: 3000,
-    perks: ['Access to Sports Day', 'Free drink voucher', 'Merchandise discount'],
+    perks: ['Entry for Sports Day (Dec 22)'],
   },
   {
     id: 'party',
     name: 'Party Pass',
     price: 5000,
-    perks: ['Entry to Party Night', '2 free drink vouchers', 'Glow sticks'],
+    perks: ['Entry for Party Night (Dec 23)'],
   },
   {
     id: 'all-access',
     name: 'All-Access Pass',
     price: 7500,
     perks: [
-      'Access to Sports Day & Party Night',
-      'Exclusive VIP lounge access',
-      'Meet & greet with artists',
-      'Complimentary food & drinks',
+      'Both days + fast-track entry + free drink'
     ],
   },
 ];
@@ -39,20 +36,22 @@ export const schedule: ScheduleDay[] = [
   {
     day: 'Day 1: Sports Day',
     date: 'December 22, 2025',
+    time: '12PM – 6PM',
     items: [
-      { time: '12PM – 6PM', title: 'University Matchups (Football & Basketball)', location: 'Main Field', description: 'Fierce competition between universities.', type: 'Sports' },
-      { time: '12PM – 6PM', title: 'Entertainment: Hype crews, halftime shows, prizes', location: 'Various', description: 'Non-stop entertainment throughout the day.', type: 'Entertainment' },
+      { title: 'University Matchups (Football & Basketball)', location: 'Main Field', description: 'Fierce competition between universities.', type: 'Sports' },
+      { title: 'Entertainment: Hype crews, halftime shows, prizes', location: 'Various', description: 'Non-stop entertainment throughout the day.', type: 'Entertainment' },
     ],
   },
   {
     day: 'Day 2: Party Night',
     date: 'December 23, 2025',
+    time: '6PM – Late',
     items: [
-      { time: '6PM – Late', title: 'Unplugged Party Vibes', location: 'Concert Ground', description: 'Chill and enjoy the music.', type: 'Entertainment' },
-      { time: '6PM – Late', title: 'Live performances', location: 'Main Stage', description: 'Nigeria\'s hottest artists perform.', type: 'Entertainment' },
-      { time: '6PM – Late', title: 'Fashion showcase', location: 'Runway', description: 'Latest trends on display.', type: 'Entertainment' },
-      { time: '6PM – Late', title: 'Dance floor + games', location: 'Party Zone', description: 'Dance the night away and play fun games.', type: 'Entertainment' },
-      { time: '6PM – Late', title: 'Photo booth & food court', location: 'Social Area', description: 'Capture memories and grab a bite.', type: 'Entertainment' },
+      { title: 'Unplugged Party Vibes', location: 'Concert Ground', description: 'Chill and enjoy the music.', type: 'Entertainment' },
+      { title: 'Live performances', location: 'Main Stage', description: 'Nigeria\'s hottest artists perform.', type: 'Entertainment' },
+      { title: 'Fashion showcase', location: 'Runway', description: 'Latest trends on display.', type: 'Entertainment' },
+      { title: 'Dance floor + games', location: 'Party Zone', description: 'Dance the night away and play fun games.', type: 'Entertainment' },
+      { title: 'Photo booth & food court', location: 'Social Area', description: 'Capture memories and grab a bite.', type: 'Entertainment' },
     ],
   },
 ];

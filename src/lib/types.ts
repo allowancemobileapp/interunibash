@@ -12,7 +12,6 @@ export type Artist = {
 };
 
 export type ScheduleItem = {
-  time: string;
   title: string;
   location: string;
   description: string;
@@ -22,6 +21,7 @@ export type ScheduleItem = {
 export type ScheduleDay = {
   day: string;
   date: string;
+  time: string;
   items: ScheduleItem[];
 };
 

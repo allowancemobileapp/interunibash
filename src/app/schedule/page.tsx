@@ -1,8 +1,8 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Ticket, Gamepad2, Music, Clock } from "lucide-react";
+import { Ticket, Gamepad2, Music, Clock, MapPin } from "lucide-react";
 import { schedule } from "@/lib/data";
 
 const dayColors = [
@@ -31,15 +31,19 @@ export default function SchedulePage() {
         <div className="space-y-8">
             {schedule.map((day, index) => (
                 <Card key={day.day} className={`${dayColors[index % dayColors.length]} rounded-2xl overflow-hidden`}>
-                    <div className="flex flex-col md:flex-row justify-between items-center p-6 md:p-8">
+                    <div className="flex flex-col md:flex-row justify-between items-start p-6 md:p-8">
                         <div className="flex-1">
                             <h2 className="text-4xl font-extrabold font-headline uppercase">{day.day.split(':')[0]}</h2>
                             <p className="text-xl font-semibold">{day.day.split(':')[1]}</p>
                         </div>
-                        <div className="flex-1 text-center md:text-right mt-4 md:mt-0">
-                            <Badge variant="secondary" className="text-lg md:text-xl">
+                        <div className="text-left md:text-right mt-4 md:mt-0">
+                            <Badge variant="secondary" className="text-lg md:text-xl mb-2">
                                 {day.date}
                             </Badge>
+                            <div className="flex items-center justify-start md:justify-end text-lg font-semibold">
+                                <Clock className="w-5 h-5 mr-2" />
+                                <span>{day.time}</span>
+                            </div>
                         </div>
                     </div>
                      <div className="bg-card/20 p-6 md:p-8">
@@ -50,13 +54,15 @@ export default function SchedulePage() {
                                         {typeIcons[item.type] || <Gamepad2 className="w-5 h-5 mr-3" />}
                                         <h3 className="font-headline text-xl">{item.title}</h3>
                                     </div>
-                                    <div className="flex items-center text-sm opacity-80 mt-1 pl-8">
-                                      <Clock className="w-4 h-4 mr-2" />
-                                      <span>{item.time}</span>
-                                      {item.location && <span className="mx-2">|</span>}
-                                      <span>{item.location}</span>
+                                    <div className="pl-8 text-sm opacity-80 mt-1">
+                                        <p>{item.description}</p>
+                                        {item.location && (
+                                            <div className="flex items-center mt-1 text-xs opacity-80">
+                                                <MapPin className="w-3 h-3 mr-1.5" />
+                                                <span>{item.location}</span>
+                                            </div>
+                                        )}
                                     </div>
-                                    <p className="pl-8 text-sm opacity-80 mt-1">{item.description}</p>
                                 </div>
                             ))}
                         </div>
