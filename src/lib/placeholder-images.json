@@ -7,6 +7,12 @@
       "imageHint": "festival crowd"
     },
     {
+      "id": "split-image-1",
+      "description": "A man signing an autograph for a fan in a crowd.",
+      "imageUrl": "https://picsum.photos/seed/split1/800/900",
+      "imageHint": "artist fan"
+    },
+    {
       "id": "promo-1",
       "description": "Students playing basketball.",
       "imageUrl": "https://picsum.photos/seed/promo1/1080/720",
