@@ -40,20 +40,19 @@ export const schedule: ScheduleDay[] = [
     day: 'Day 1: Sports Day',
     date: 'December 22, 2025',
     items: [
-      { time: '12:00 PM', title: 'Opening Ceremony', location: 'Main Field', description: 'Kick-off with a bang!', type: 'Entertainment' },
-      { time: '1:00 PM', title: 'Football Match: Uni A vs Uni B', location: 'Stadium', description: 'The rivalry begins.', type: 'Sports' },
-      { time: '3:00 PM', title: 'Basketball Finals', location: 'Indoor Court', description: 'Slam dunks and high stakes.', type: 'Sports' },
-      { time: '5:00 PM', title: 'Live Performance by Local Band', location: 'Main Stage', description: 'Chill vibes before the night.', type: 'Entertainment' },
+      { time: '12PM – 6PM', title: 'University Matchups (Football & Basketball)', location: 'Main Field', description: 'Fierce competition between universities.', type: 'Sports' },
+      { time: '12PM – 6PM', title: 'Entertainment: Hype crews, halftime shows, prizes', location: 'Various', description: 'Non-stop entertainment throughout the day.', type: 'Entertainment' },
     ],
   },
   {
     day: 'Day 2: Party Night',
     date: 'December 23, 2025',
     items: [
-      { time: '7:00 PM', title: 'Gates Open for Party Night', location: 'Concert Ground', description: 'Get ready to party.', type: 'Entertainment' },
-      { time: '8:00 PM', title: 'DJ Set by DJ Spinall', location: 'Main Stage', description: 'The party starts now.', type: 'Entertainment' },
-      { time: '10:00 PM', title: 'Headline Performance', location: 'Main Stage', description: 'Surprise headline act!', type: 'Entertainment' },
-      { time: '12:00 AM', title: 'Afterparty with Guest DJs', location: 'VIP Lounge', description: 'The night is young.', type: 'Entertainment' },
+      { time: '6PM – Late', title: 'Unplugged Party Vibes', location: 'Concert Ground', description: 'Chill and enjoy the music.', type: 'Entertainment' },
+      { time: '6PM – Late', title: 'Live performances', location: 'Main Stage', description: 'Nigeria\'s hottest artists perform.', type: 'Entertainment' },
+      { time: '6PM – Late', title: 'Fashion showcase', location: 'Runway', description: 'Latest trends on display.', type: 'Entertainment' },
+      { time: '6PM – Late', title: 'Dance floor + games', location: 'Party Zone', description: 'Dance the night away and play fun games.', type: 'Entertainment' },
+      { time: '6PM – Late', title: 'Photo booth & food court', location: 'Social Area', description: 'Capture memories and grab a bite.', type: 'Entertainment' },
     ],
   },
 ];
