@@ -2,18 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
+import Link from "next/link";
+import { Ticket } from "lucide-react";
 
-const eventCategories = [
+const ticketTiers = [
     {
-        title: "LIVE SHOW",
+        title: "Sports Pass",
+        description: "Entry for Sports Day (Dec 22)",
+        price: "₦3,000",
         color: "bg-primary text-primary-foreground",
     },
     {
-        title: "SUMMIT",
+        title: "Party Pass",
+        description: "Entry for Party Night (Dec 23)",
+        price: "₦5,000",
         color: "bg-secondary text-secondary-foreground",
     },
     {
-        title: "HI-FI",
+        title: "All-Access Pass",
+        description: "Both days + fast-track entry + free drink",
+        price: "₦7,500",
         color: "bg-accent text-accent-foreground",
     },
 ];
@@ -24,8 +32,10 @@ export default function TicketsPage() {
         <div className="container py-12 md:py-16">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-2xl font-bold tracking-widest">TICKETS</h1>
-                <Button variant="ghost" size="icon">
-                    <Plus className="h-6 w-6" />
+                <Button variant="ghost" size="icon" asChild>
+                    <Link href="/contact">
+                        <Plus className="h-6 w-6" />
+                    </Link>
                 </Button>
             </div>
 
@@ -38,11 +48,18 @@ export default function TicketsPage() {
             </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {eventCategories.map((cat) => (
-                    <Card key={cat.title} className={`${cat.color} rounded-2xl flex flex-col justify-between items-start p-6 min-h-[200px]`}>
-                        <h3 className="text-4xl font-extrabold font-headline uppercase">{cat.title}</h3>
-                        <Button variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current">
-                            To Be Announced
+                {ticketTiers.map((ticket) => (
+                    <Card key={ticket.title} className={`${ticket.color} rounded-2xl flex flex-col justify-between items-start p-6 min-h-[200px]`}>
+                        <div>
+                            <h3 className="text-4xl font-extrabold font-headline uppercase">{ticket.title}</h3>
+                            <p className="mt-1">{ticket.description}</p>
+                            <p className="text-2xl font-bold mt-2">{ticket.price}</p>
+                        </div>
+                        <Button asChild variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current mt-4">
+                            <Link href="#">
+                                <Ticket className="mr-2 h-4 w-4" />
+                                Buy Now
+                            </Link>
                         </Button>
                     </Card>
                 ))}
