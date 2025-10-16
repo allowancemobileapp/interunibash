@@ -24,13 +24,15 @@ export function HeroSection() {
       
       <div className="relative z-10 flex flex-col items-center gap-8 p-4">
         <div className="flex flex-col gap-4">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold font-headline tracking-tighter uppercase 
-                         bg-gradient-to-b from-primary via-amber-200 to-primary bg-clip-text text-transparent
-                         drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
-            Game On. Party On.
-          </h1>
-          <p className="text-lg md:text-2xl font-semibold font-headline -mt-2">Inter-Uni Edition</p>
-          <p className="text-md md:text-xl font-medium text-foreground/80">
+           <Image
+            src="https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp_Image_2025-10-11_at_12.05.11_7c37a056-removebg-preview.png"
+            alt="Game On. Party On. Inter-Uni Edition"
+            width={600}
+            height={300}
+            className="object-contain"
+            priority
+          />
+          <p className="text-md md:text-xl font-medium text-foreground/80 -mt-4">
             22–23 December 2025 • Lagos, Nigeria
           </p>
         </div>
