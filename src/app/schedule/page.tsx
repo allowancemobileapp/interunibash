@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Ticket, Gamepad2, Music } from "lucide-react";
+import { Ticket, Gamepad2, Music, Clock } from "lucide-react";
 import { schedule } from "@/lib/data";
 
 const dayColors = [
@@ -10,7 +10,7 @@ const dayColors = [
     "bg-accent text-accent-foreground",
 ];
 
-const typeIcons = {
+const typeIcons: { [key: string]: React.ReactNode } = {
     'Sports': <Gamepad2 className="w-5 h-5 mr-3" />,
     'Entertainment': <Music className="w-5 h-5 mr-3" />
 }
@@ -28,10 +28,10 @@ export default function SchedulePage() {
             </Button>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
             {schedule.map((day, index) => (
-                <div key={day.day}>
-                    <Card className={`${dayColors[index % dayColors.length]} rounded-2xl flex flex-col md:flex-row justify-between items-center p-6 md:p-8 mb-6`}>
+                <Card key={day.day} className={`${dayColors[index % dayColors.length]} rounded-2xl overflow-hidden`}>
+                    <div className="flex flex-col md:flex-row justify-between items-center p-6 md:p-8">
                         <div className="flex-1">
                             <h2 className="text-4xl font-extrabold font-headline uppercase">{day.day.split(':')[0]}</h2>
                             <p className="text-xl font-semibold">{day.day.split(':')[1]}</p>
@@ -41,24 +41,27 @@ export default function SchedulePage() {
                                 {day.date}
                             </Badge>
                         </div>
-                    </Card>
-                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {day.items.map((item, itemIndex) => (
-                            <Card key={itemIndex} className="bg-card">
-                                <CardHeader>
-                                    <div className="flex items-center text-primary">
-                                        {typeIcons[item.type]}
-                                        <CardTitle className="font-headline text-xl">{item.title}</CardTitle>
-                                    </div>
-                                    <CardDescription>{item.time} @ {item.location}</CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground text-sm">{item.description}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
                     </div>
-                </div>
+                     <div className="bg-card/20 p-6 md:p-8">
+                        <div className="grid gap-6">
+                            {day.items.map((item, itemIndex) => (
+                                <div key={itemIndex}>
+                                    <div className="flex items-center">
+                                        {typeIcons[item.type] || <Gamepad2 className="w-5 h-5 mr-3" />}
+                                        <h3 className="font-headline text-xl">{item.title}</h3>
+                                    </div>
+                                    <div className="flex items-center text-sm opacity-80 mt-1 pl-8">
+                                      <Clock className="w-4 h-4 mr-2" />
+                                      <span>{item.time}</span>
+                                      {item.location && <span className="mx-2">|</span>}
+                                      <span>{item.location}</span>
+                                    </div>
+                                    <p className="pl-8 text-sm opacity-80 mt-1">{item.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Card>
             ))}
         </div>
     </div>
