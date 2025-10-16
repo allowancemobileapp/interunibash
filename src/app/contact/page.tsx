@@ -86,13 +86,13 @@ export default function ContactPage() {
             </div>
             <h2 className="text-2xl font-bold font-headline pt-4">Social Media</h2>
             <div className="space-y-4">
-                <a href="#" className="flex items-center gap-4 group">
+                <a href="https://twitter.com/InterUniBash" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                     <Twitter className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span className="text-muted-foreground group-hover:text-primary transition-colors">@InterUniBash</span>
                 </a>
-                 <a href="#" className="flex items-center gap-4 group">
+                 <a href="https://instagram.com/areanavibes_unplugged" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                     <Instagram className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <span className="text-muted-foreground group-hover:text-primary transition-colors">@InterUniBash</span>
+                    <span className="text-muted-foreground group-hover:text-primary transition-colors">@areanavibes_unplugged</span>
                 </a>
             </div>
         </div>

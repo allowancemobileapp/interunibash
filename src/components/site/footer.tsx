@@ -16,10 +16,10 @@ export function SiteFooter() {
             The ultimate university showdown.
           </p>
           <div className="flex space-x-4">
-            <Link href="#" aria-label="Twitter">
+            <Link href="https://twitter.com/InterUniBash" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
             </Link>
-            <Link href="#" aria-label="Instagram">
+            <Link href="https://instagram.com/areanavibes_unplugged" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
             </Link>
             <Link href="#" aria-label="Facebook">
