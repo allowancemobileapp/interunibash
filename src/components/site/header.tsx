@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
 import { Menu, Ticket } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -58,6 +58,12 @@ export function SiteHeader() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Mobile Menu</SheetTitle>
+                  <SheetDescription>
+                    A list of navigation links for the site.
+                  </SheetDescription>
+                </SheetHeader>
                 <Link href="/" className="mr-6 flex items-center space-x-2">
                   <Ticket className="h-6 w-6 text-primary" />
                   <span className="font-bold font-headline">Inter-Uni Bash</span>
