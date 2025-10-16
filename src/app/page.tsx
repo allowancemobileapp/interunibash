@@ -5,6 +5,7 @@ import { LineupSection } from '@/components/lineup-section';
 import { PromoSlider } from '@/components/promo-slider';
 import { TicketsSection } from '@/components/tickets-section';
 import { SplitSection } from '@/components/split-section';
+import { FestivalTicketsSection } from '@/components/festival-tickets-section';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <InfoSection />
       <SplitSection />
+      <FestivalTicketsSection />
       <PromoSlider />
       <HighlightsSection />
       <LineupSection />
