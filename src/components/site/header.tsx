@@ -3,7 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu, Ticket } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -36,19 +43,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center px-4 md:px-8 lg:px-16">
-        <div className="mr-4 hidden md:flex">
+        <div className="flex flex-1 items-center justify-start">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Ticket className="h-6 w-6 text-primary" />
-            <span className="hidden font-bold sm:inline-block font-headline">
+            <span className="font-bold sm:inline-block font-headline">
               Inter-Uni Bash
             </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {renderNavLinks()}
           </nav>
         </div>
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+        <div className="flex items-center justify-end space-x-2">
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
@@ -58,9 +65,9 @@ export function SiteHeader() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <SheetHeader>
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                  <SheetDescription className="sr-only">
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Mobile Menu</SheetTitle>
+                  <SheetDescription>
                     A list of navigation links for the site.
                   </SheetDescription>
                 </SheetHeader>
@@ -75,7 +82,7 @@ export function SiteHeader() {
             </Sheet>
           </div>
 
-          <nav className="flex items-center">
+          <nav className="hidden md:flex items-center">
             <Button asChild>
               <Link href="/tickets">
                 <Ticket className="mr-2 h-4 w-4" />
