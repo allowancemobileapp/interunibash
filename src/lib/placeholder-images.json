@@ -45,7 +45,7 @@
     {
       "id": "artist-3",
       "description": "Portrait of Tems",
-      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/tems.jpeg",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/tems1.jpg",
       "imageHint": "female singer"
     },
     {
@@ -57,7 +57,7 @@
     {
       "id": "artist-5",
       "description": "Portrait of Asake",
-      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/asake.jpg",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/asake1.jpeg",
       "imageHint": "man dreadlocks"
     },
     {
