@@ -3,8 +3,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function AboutPage() {
-    const organizerImage = PlaceHolderImages.find(img => img.id === 'about-organizers');
-
     return (
         <div className="container mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-24">
             <div className="text-center mb-12">
@@ -33,15 +31,15 @@ export default function AboutPage() {
                          </p>
                     </div>
                     <div className="relative min-h-[300px] md:min-h-0">
-                        {organizerImage && (
-                             <Image
-                                src={organizerImage.imageUrl}
-                                alt={organizerImage.description}
-                                fill
-                                className="object-cover"
-                                data-ai-hint={organizerImage.imageHint}
-                            />
-                        )}
+                       <video
+                          src="https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Video%202025-10-13%20at%2022.26.30_63d3684a.mp4"
+                          title="Promotional video for the Inter-Uni Bash event"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="absolute top-0 left-0 w-full h-full object-cover"
+                        ></video>
                     </div>
                 </div>
             </Card>
