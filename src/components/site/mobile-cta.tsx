@@ -4,16 +4,28 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Ticket } from "lucide-react";
 import { ticketTiers } from "@/lib/data";
+import { useEffect, useState } from "react";
 
 export function MobileCTA() {
-  const cheapestTicket = ticketTiers.reduce((prev, curr) => (prev.price < curr.price ? prev : curr));
+  const [cheapestTicketPrice, setCheapestTicketPrice] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (ticketTiers && ticketTiers.length > 0) {
+      const cheapest = ticketTiers.reduce((prev, curr) => (prev.price < curr.price ? prev : curr));
+      setCheapestTicketPrice(cheapest.price);
+    }
+  }, []);
+
+  if (cheapestTicketPrice === null) {
+    return null; // Don't render until client-side hydration is complete
+  }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/40 bg-background/95 p-4 backdrop-blur-sm md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/40 bg-background/95 py-4 md:hidden">
       <div className="container flex items-center justify-between">
         <div>
           <p className="text-sm font-medium">Tickets from</p>
-          <p className="text-lg font-bold text-primary">₦{cheapestTicket.price.toLocaleString()}</p>
+          <p className="text-lg font-bold text-primary">₦{cheapestTicketPrice.toLocaleString()}</p>
         </div>
         <Button asChild size="lg">
           <Link href="/tickets">

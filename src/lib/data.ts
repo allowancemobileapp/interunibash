@@ -18,7 +18,9 @@ export const ticketTiers: TicketTier[] = [
     name: 'All-Access Pass',
     price: 7500,
     perks: [
-      'Both days + fast-track entry + free drink'
+      'Both days',
+      'Fast-track entry',
+      'Free drink'
     ],
   },
 ];
@@ -39,7 +41,7 @@ export const schedule: ScheduleDay[] = [
     time: '12PM – 6PM',
     items: [
       { title: 'University Matchups (Football & Basketball)', location: 'Main Field', description: 'Fierce competition between universities.', type: 'Sports' },
-      { title: 'Entertainment: Hype crews, halftime shows, prizes', location: 'Various', description: 'Non-stop entertainment throughout the day.', type: 'Entertainment' },
+      { title: 'Entertainment', location: 'Various', description: 'Hype crews, halftime shows, prizes.', type: 'Entertainment' },
     ],
   },
   {
@@ -48,7 +50,7 @@ export const schedule: ScheduleDay[] = [
     time: '6PM – Late',
     items: [
       { title: 'Unplugged Party Vibes', location: 'Concert Ground', description: 'Chill and enjoy the music.', type: 'Entertainment' },
-      { title: 'Live performances', location: 'Main Stage', description: 'Nigeria\'s hottest artists perform.', type: 'Entertainment' },
+      { title: 'Live performances', location: 'Main Stage', description: "Nigeria's hottest artists perform.", type: 'Entertainment' },
       { title: 'Fashion showcase', location: 'Runway', description: 'Latest trends on display.', type: 'Entertainment' },
       { title: 'Dance floor + games', location: 'Party Zone', description: 'Dance the night away and play fun games.', type: 'Entertainment' },
       { title: 'Photo booth & food court', location: 'Social Area', description: 'Capture memories and grab a bite.', type: 'Entertainment' },
