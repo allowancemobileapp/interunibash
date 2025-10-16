@@ -72,14 +72,15 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-primary" />
                     <div>
                         <h3 className="font-semibold">Email</h3>
-                        <a href="mailto:info@interunibash.com" className="text-muted-foreground hover:text-primary">info@interunibash.com</a>
+                        <a href="mailto:areanavibe@outlook.com" className="text-muted-foreground hover:text-primary">areanavibe@outlook.com</a>
                     </div>
                 </div>
-                 <div className="flex items-center gap-4">
-                    <Phone className="w-6 h-6 text-primary" />
+                 <div className="flex items-start gap-4">
+                    <Phone className="w-6 h-6 text-primary mt-1" />
                     <div>
                         <h3 className="font-semibold">Phone</h3>
-                        <p className="text-muted-foreground">+234 801 234 5678</p>
+                        <p className="text-muted-foreground">08065554021</p>
+                        <p className="text-muted-foreground">07065144485</p>
                     </div>
                 </div>
             </div>
