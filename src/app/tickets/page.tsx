@@ -9,6 +9,13 @@ import { Ticket } from "lucide-react";
 import { ticketTiers } from "@/lib/data";
 
 export default function TicketsPage() {
+    const whatsAppNumber = "2348065554021";
+
+    const createWhatsAppLink = (ticketName: string) => {
+        const message = `Hi, I'm interested in purchasing the "${ticketName}" ticket for the Inter-Uni Bash event.`;
+        return `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`;
+    }
+
     return (
         <div className="py-12 md:py-16">
             <div className="container mx-auto px-4 md:px-8 lg:px-16 flex justify-between items-center mb-8">
@@ -39,7 +46,7 @@ export default function TicketsPage() {
                             <p className="text-2xl font-bold mt-2">₦{ticket.price.toLocaleString()}</p>
                         </div>
                         <Button asChild variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current mt-4">
-                            <Link href="#">
+                            <Link href={createWhatsAppLink(ticket.name)} target="_blank" rel="noopener noreferrer">
                                 <Ticket className="mr-2 h-4 w-4" />
                                 Buy Now
                             </Link>
