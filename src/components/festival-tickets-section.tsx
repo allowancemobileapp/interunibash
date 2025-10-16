@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 export function FestivalTicketsSection() {
   return (
     <section className="bg-card text-foreground py-12 md:py-16">
-      <div className="container flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div>
           <h2 className="text-4xl md:text-6xl font-extrabold font-headline uppercase tracking-tighter text-primary">
             Festival Tickets

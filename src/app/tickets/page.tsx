@@ -10,7 +10,7 @@ import { ticketTiers } from "@/lib/data";
 
 export default function TicketsPage() {
     return (
-        <div className="container py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-2xl font-bold tracking-widest">TICKETS</h1>
                 <Button variant="ghost" size="icon" asChild>

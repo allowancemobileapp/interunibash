@@ -6,7 +6,7 @@ import { Ticket, Twitter, Instagram, Facebook } from "lucide-react";
 export function SiteFooter() {
   return (
     <footer className="w-full border-t border-border/40">
-      <div className="container grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
         <div className="flex flex-col gap-4">
           <div className="flex items-center space-x-2">
             <Ticket className="h-6 w-6 text-primary" />
@@ -57,7 +57,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border/40 py-6">
-        <div className="container text-center text-sm text-muted-foreground">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Inter-Uni Bash. All Rights Reserved.
         </div>
       </div>

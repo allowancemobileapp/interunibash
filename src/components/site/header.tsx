@@ -35,7 +35,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
-      <div className="container flex h-16 items-center">
+      <div className="container mx-auto flex h-16 items-center px-4 md:px-8 lg:px-16">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Ticket className="h-6 w-6 text-primary" />
@@ -58,17 +58,17 @@ export function SiteHeader() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <SheetHeader className="sr-only">
-                  <SheetTitle>Mobile Menu</SheetTitle>
-                  <SheetDescription>
+                <SheetHeader>
+                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                  <SheetDescription className="sr-only">
                     A list of navigation links for the site.
                   </SheetDescription>
                 </SheetHeader>
-                <Link href="/" className="mr-6 flex items-center space-x-2">
+                <Link href="/" className="mr-6 flex items-center space-x-2 px-4">
                   <Ticket className="h-6 w-6 text-primary" />
                   <span className="font-bold font-headline">Inter-Uni Bash</span>
                 </Link>
-                <div className="flex flex-col space-y-4 mt-6">
+                <div className="flex flex-col space-y-4 mt-6 px-4">
                   {renderNavLinks(true)}
                 </div>
               </SheetContent>

@@ -20,7 +20,7 @@ export function SplitSection() {
                   />
                )}
           </div>
-          <div className="flex flex-col justify-center p-8 md:p-12">
+          <div className="flex flex-col justify-center p-8 md:p-12 container mx-auto px-4 md:px-8 lg:px-16">
               <h2 className="text-4xl md:text-5xl font-extrabold font-headline uppercase leading-tight">
                   Join Us For 2 Days of Sports, Music & Culture
               </h2>

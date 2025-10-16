@@ -7,13 +7,17 @@ import { FestivalTicketsSection } from '@/components/festival-tickets-section';
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <>
       <HeroSection />
-      <InfoSection />
+      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+        <InfoSection />
+      </div>
       <SplitSection />
-      <FestivalTicketsSection />
-      <PromoSlider />
-      <LineupSection />
-    </div>
+      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+        <FestivalTicketsSection />
+        <PromoSlider />
+        <LineupSection />
+      </div>
+    </>
   );
 }

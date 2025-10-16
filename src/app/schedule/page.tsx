@@ -32,7 +32,7 @@ export default function SchedulePage() {
     };
 
     return (
-        <div className="container py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-16">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-2xl font-bold tracking-widest uppercase">Schedule</h1>
                 <Button variant="outline" asChild>

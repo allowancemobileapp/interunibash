@@ -4,7 +4,7 @@ import { galleryImages } from '@/lib/data';
 
 export default function GalleryPage() {
     return (
-        <div className="container py-12 md:py-24">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-24">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold font-headline">Event Gallery</h1>
                 <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">

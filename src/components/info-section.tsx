@@ -1,7 +1,7 @@
 export function InfoSection() {
     return (
       <section className="bg-background py-12 md:py-20 text-center">
-        <div className="container">
+        
           <h2 className="text-3xl md:text-5xl font-extrabold font-headline uppercase text-foreground">
             A celebration of youth, sports, and nightlife culture!
           </h2>
@@ -12,7 +12,7 @@ export function InfoSection() {
             <p>22-23 December, 2025</p>
             <p>Lagos, Nigeria</p>
           </div>
-        </div>
+        
       </section>
     );
   }

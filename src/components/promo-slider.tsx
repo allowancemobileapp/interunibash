@@ -14,7 +14,7 @@ export function PromoSlider() {
 
   return (
     <section className="w-full py-12 md:py-20 bg-background">
-      <div className="container">
+      
         <Carousel
           opts={{
             align: "start",
@@ -47,7 +47,7 @@ export function PromoSlider() {
           <CarouselPrevious className="hidden sm:flex" />
           <CarouselNext className="hidden sm:flex" />
         </Carousel>
-      </div>
+      
     </section>
   );
 }
