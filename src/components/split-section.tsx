@@ -1,24 +1,21 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function SplitSection() {
-  const splitImage = PlaceHolderImages.find(img => img.id === 'split-image-1');
+  const youtubeVideoId = "1WhRgGBi9Go";
 
   return (
     <section className="bg-primary text-primary-foreground">
       <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="relative min-h-[400px] md:min-h-[500px]">
-               {splitImage && (
-                  <Image
-                      src={splitImage.imageUrl}
-                      alt={splitImage.description}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={splitImage.imageHint}
-                  />
-               )}
+          <div className="relative min-h-[400px] md:min-h-[500px] aspect-w-16 aspect-h-9 md:aspect-none">
+            <iframe
+              src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&autohide=1&modestbranding=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            ></iframe>
           </div>
           <div className="flex flex-col justify-center p-8 md:p-12 container mx-auto px-4 md:px-8 lg:px-16">
               <h2 className="text-4xl md:text-5xl font-extrabold font-headline uppercase leading-tight">
