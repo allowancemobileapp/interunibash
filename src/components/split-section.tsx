@@ -2,20 +2,20 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 export function SplitSection() {
-  const youtubeVideoId = "1WhRgGBi9Go";
 
   return (
     <section className="bg-primary text-primary-foreground">
       <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative min-h-[400px] md:min-h-[500px] aspect-w-16 aspect-h-9 md:aspect-none">
-            <iframe
-              src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&autohide=1&modestbranding=1`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+            <video
+              src="https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Video%202025-10-13%20at%2022.26.30_63d3684a.mp4"
+              title="Promotional video for the Inter-Uni Bash event"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="absolute top-0 left-0 w-full h-full object-cover"
-            ></iframe>
+            ></video>
           </div>
           <div className="flex flex-col justify-center p-8 md:p-12 container mx-auto px-4 md:px-8 lg:px-16">
               <h2 className="text-4xl md:text-5xl font-extrabold font-headline uppercase leading-tight">
