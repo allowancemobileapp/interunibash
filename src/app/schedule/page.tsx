@@ -38,7 +38,7 @@ export default function SchedulePage() {
             {schedule.map((day, index) => (
                 <AccordionItem key={day.day} value={`item-${index}`} asChild>
                     <Card className={`${dayColors[index % dayColors.length]} rounded-2xl overflow-hidden`}>
-                        <AccordionTrigger className="w-full p-6 md:p-8 hover:no-underline text-left group">
+                        <AccordionTrigger className="w-full text-left group p-6 md:p-8">
                              <div className="flex flex-col md:flex-row justify-between items-start text-left w-full">
                                 <div className="flex-1">
                                     <h2 className="text-4xl font-extrabold font-headline uppercase">{day.day.split(':')[0]}</h2>

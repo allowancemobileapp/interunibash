@@ -40,11 +40,11 @@ export default function TicketsPage() {
             </div>
 
             <Card className="bg-muted/40 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row justify-between items-center mb-8">
-                <div className="mb-4 md:mb-0">
+                <div className="mb-4 md:mb-0 text-center md:text-left">
                     <h2 className="text-4xl font-extrabold font-headline uppercase">TRAVEL PACKAGES</h2>
                     <p className="text-muted-foreground text-sm">Make your journey to HOMECOMING™ 2025 stress-free with our exclusive Travel Packages - coming soon.</p>
                 </div>
-                <Badge variant="secondary" className="text-sm">Coming Soon</Badge>
+                <Badge variant="secondary" className="text-sm mt-4 md:mt-0">Coming Soon</Badge>
             </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
