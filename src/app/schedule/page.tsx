@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
@@ -39,7 +40,7 @@ export default function SchedulePage() {
             {schedule.map((day, index) => (
                 <AccordionItem key={day.day} value={`item-${index}`} asChild>
                     <Card className={`${dayColors[index % dayColors.length]} rounded-2xl overflow-hidden`}>
-                        <AccordionTrigger className="w-full p-6 md:p-8 hover:no-underline">
+                        <AccordionTrigger className="w-full p-6 md:p-8 hover:no-underline text-left">
                              <div className="flex flex-col md:flex-row justify-between items-start text-left w-full">
                                 <div className="flex-1">
                                     <h2 className="text-4xl font-extrabold font-headline uppercase">{day.day.split(':')[0]}</h2>
@@ -55,7 +56,6 @@ export default function SchedulePage() {
                                     </div>
                                 </div>
                             </div>
-                            <ChevronDown className="h-8 w-8 shrink-0 transition-transform duration-200 ml-4" />
                         </AccordionTrigger>
                          <AccordionContent>
                             <div className="bg-card/20 p-6 md:p-8">
