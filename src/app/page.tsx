@@ -13,8 +13,8 @@ export default function Home() {
         <InfoSection />
       </div>
       <SplitSection />
+      <FestivalTicketsSection />
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
-        <FestivalTicketsSection />
         <PromoSlider />
         <LineupSection />
       </div>
