@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -15,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription as CardDescriptionComponent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useState } from "react"
 import { generateTicketBlurb } from "@/ai/flows/automated-ticket-blurbs"
 import { Wand2, Loader2 } from "lucide-react"
@@ -63,9 +64,9 @@ export function TicketBlurbGenerator() {
     <Card>
       <CardHeader>
         <CardTitle>AI Ticket Blurb Generator</CardTitle>
-        <CardDescription>
+        <CardDescriptionComponent>
           Automatically generate promotional text for your ticket tiers. Just provide the details below.
-        </CardDescription>
+        </CardDescriptionComponent>
       </CardHeader>
       <CardContent>
         <Form {...form}>
