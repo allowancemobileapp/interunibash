@@ -1,64 +1,43 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-import { Download, MapPin } from "lucide-react";
-import { schedule } from "@/lib/data";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Ticket } from "lucide-react";
+import { schedule } from "@/lib/data";
+
+const dayColors = [
+    "bg-primary text-primary-foreground",
+    "bg-accent text-accent-foreground",
+];
 
 export default function SchedulePage() {
   return (
-    <div className="container py-12 md:py-24">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
-        <div className="text-center md:text-left mb-4 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline">Event Schedule</h1>
-          <p className="text-muted-foreground mt-2">
-            Plan your experience. Here's what's happening and when.
-          </p>
+    <div className="container py-12 md:py-16">
+        <div className="flex justify-between items-center mb-8">
+            <h1 className="text-2xl font-bold tracking-widest uppercase">Schedule</h1>
+            <Button variant="outline" asChild>
+                <Link href="/tickets">
+                    <Ticket className="mr-2 h-4 w-4" />
+                    Get Tickets
+                </Link>
+            </Button>
         </div>
-        <Button variant="outline">
-          <Download className="mr-2 h-4 w-4" />
-          Download PDF
-        </Button>
-      </div>
 
-      <Tabs defaultValue={schedule[0].day} className="w-full">
-        <TabsList className="grid w-full grid-cols-1 md:grid-cols-2">
-          {schedule.map(day => (
-            <TabsTrigger key={day.day} value={day.day}>
-              {day.day} <span className="hidden sm:inline text-muted-foreground ml-2">({day.date})</span>
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        {schedule.map(day => (
-          <TabsContent key={day.day} value={day.day}>
-            <div className="mt-8 flow-root">
-              <div className="-my-8 divide-y divide-border">
-                {day.items.map((item, index) => (
-                  <div key={index} className="py-8">
-                    <div className="grid grid-cols-4 md:grid-cols-6 gap-4 items-start">
-                      <div className="col-span-1">
-                        <p className="font-bold text-primary">{item.time}</p>
-                      </div>
-                      <div className="col-span-3 md:col-span-5 space-y-2">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                            <h3 className="font-bold text-lg">{item.title}</h3>
-                            <Badge variant={item.type === 'Sports' ? 'secondary' : 'default'} className="w-fit">
-                                {item.type}
-                            </Badge>
-                        </div>
-                        <p className="text-muted-foreground">{item.description}</p>
-                        <div className="flex items-center text-sm text-muted-foreground">
-                            <MapPin className="w-4 h-4 mr-2"/>
-                            <span>{item.location}</span>
-                        </div>
-                      </div>
+        <div className="flex flex-col gap-4">
+            {schedule.map((day, index) => (
+                <Card key={day.day} className={`${dayColors[index % dayColors.length]} rounded-2xl flex flex-col md:flex-row justify-between items-center p-6 md:p-8 min-h-[180px]`}>
+                    <div className="flex-1">
+                        <h2 className="text-4xl font-extrabold font-headline uppercase">{day.day.split(':')[0]}</h2>
+                        <p className="text-xl font-semibold">{day.day.split(':')[1]}</p>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+                    <div className="flex-1 text-center md:text-right mt-4 md:mt-0">
+                         <Badge variant="secondary" className="text-lg md:text-xl">
+                            {day.date}
+                        </Badge>
+                    </div>
+                </Card>
+            ))}
+        </div>
     </div>
   );
 }
