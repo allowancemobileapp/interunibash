@@ -62,3 +62,4 @@ In a full implementation, this data would come from a headless CMS. For now, all
 -   For example, to change the Hero Section headline, open `src/components/hero-section.tsx` and edit the text inside the `<h1>` tag.
 
 This component-based approach allows you to easily manage and update sections of the site.
+# interunibash
