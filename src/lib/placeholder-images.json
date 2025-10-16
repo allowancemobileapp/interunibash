@@ -33,37 +33,37 @@
     {
       "id": "artist-1",
       "description": "Portrait of DJ Spinall",
-      "imageUrl": "https://picsum.photos/seed/djspinall/500/500",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/spinall.jpg",
       "imageHint": "male DJ"
     },
     {
       "id": "artist-2",
       "description": "Portrait of Wizkid",
-      "imageUrl": "https://picsum.photos/seed/wizkid/500/500",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/wizkid.jpeg",
       "imageHint": "male singer"
     },
     {
       "id": "artist-3",
       "description": "Portrait of Tems",
-      "imageUrl": "https://picsum.photos/seed/tems/500/500",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/tems.jpeg",
       "imageHint": "female singer"
     },
     {
       "id": "artist-4",
       "description": "Portrait of Burna Boy",
-      "imageUrl": "https://picsum.photos/seed/burnaboy/500/500",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/burna.jpeg",
       "imageHint": "man sunglasses"
     },
     {
       "id": "artist-5",
       "description": "Portrait of Asake",
-      "imageUrl": "https://picsum.photos/seed/asake/500/500",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/asake.jpg",
       "imageHint": "man dreadlocks"
     },
     {
       "id": "artist-6",
       "description": "Portrait of Rema",
-      "imageUrl": "https://picsum.photos/seed/rema/500/500",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/rema.jpeg",
       "imageHint": "young man"
     },
     {
