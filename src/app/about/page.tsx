@@ -27,7 +27,7 @@ export default function AboutPage() {
 
                          <h2 className="text-2xl font-bold font-headline text-primary mt-8 mb-4">The Organizers</h2>
                          <p className="text-muted-foreground">
-                            This event is brought to you by a collaboration between <span className="font-semibold text-foreground">ArenaVibes</span> and <span className="font-semibold text-foreground">Detty December</span>, two leading names in youth event management and entertainment.
+                            This event, the 'Detty December' edition, is brought to you by <span className="font-semibold text-foreground">ArenaVibes</span>, a leading name in youth event management and entertainment.
                          </p>
                     </div>
                     <div className="relative min-h-[300px] md:min-h-0">

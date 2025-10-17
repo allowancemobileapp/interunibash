@@ -24,7 +24,7 @@ export function HeroSection() {
       
       <div className="relative z-10 flex flex-col items-center gap-8 p-4">
         <div className="flex flex-col gap-2 text-center">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase font-headline tracking-tighter text-primary drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#E7D093] to-[#B58E2C] drop-shadow-lg">
                 Game On. Party On.
             </h1>
             <p className="text-xl md:text-2xl font-semibold text-foreground/90 drop-shadow-sm">
