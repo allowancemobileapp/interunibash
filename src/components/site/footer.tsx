@@ -34,6 +34,7 @@ export function SiteFooter() {
             <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link></li>
             <li><Link href="/schedule" className="text-muted-foreground hover:text-primary transition-colors">Schedule</Link></li>
             <li><Link href="/gallery" className="text-muted-foreground hover:text-primary transition-colors">Gallery</Link></li>
+            <li><Link href="/store" className="text-muted-foreground hover:text-primary transition-colors">Store</Link></li>
             <li><Link href="/tickets" className="text-muted-foreground hover:text-primary transition-colors">Tickets</Link></li>
           </ul>
         </div>

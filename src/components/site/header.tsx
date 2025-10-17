@@ -19,6 +19,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/schedule", label: "Schedule" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/store", label: "Store" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -44,19 +45,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center px-4 md:px-8 lg:px-16">
         <div className="flex flex-1 items-center justify-start">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Ticket className="h-6 w-6 text-primary" />
-            <span className="font-bold sm:inline-block font-headline">
-              Inter-Uni Bash
-            </span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {renderNavLinks()}
-          </nav>
-        </div>
-
-        <div className="flex items-center justify-end space-x-2">
-          <div className="md:hidden">
+           <div className="md:hidden mr-4">
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -81,7 +70,18 @@ export function SiteHeader() {
               </SheetContent>
             </Sheet>
           </div>
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <Ticket className="h-6 w-6 text-primary" />
+            <span className="font-bold font-headline">
+              Inter-Uni Bash
+            </span>
+          </Link>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {renderNavLinks()}
+          </nav>
+        </div>
 
+        <div className="flex items-center justify-end space-x-2">
           <nav className="hidden md:flex items-center">
             <Button asChild>
               <Link href="/tickets">
