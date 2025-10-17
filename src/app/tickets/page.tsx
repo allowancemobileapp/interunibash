@@ -31,7 +31,7 @@ export default function TicketsPage() {
                  <div className="container mx-auto px-4 md:px-8 lg:px-16 p-6 md:p-8 flex flex-col md:flex-row justify-between items-center w-full">
                     <div className="mb-4 md:mb-0 text-center md:text-left">
                         <h2 className="text-4xl font-extrabold font-headline uppercase">TRAVEL PACKAGES</h2>
-                        <p className="text-muted-foreground text-sm">Make your journey to HOMECOMING™ 2025 stress-free with our exclusive Travel Packages - coming soon.</p>
+                        <p className="text-muted-foreground text-sm">Make your journey to 2025 stress-free with exclusive Travel Packages - coming soon.</p>
                     </div>
                     <Badge variant="secondary" className="text-sm mt-4 md:mt-0 shrink-0">Coming Soon</Badge>
                 </div>
