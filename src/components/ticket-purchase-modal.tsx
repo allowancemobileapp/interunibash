@@ -60,7 +60,6 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   };
 
   const onSuccess = (reference: any) => {
-    // Generate a unique ticket code
     const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
     const uniqueId = reference.reference.slice(-6).toUpperCase();
     const ticketCode = `${ticketPrefix}-${uniqueId}`;
@@ -70,10 +69,9 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         description: `Your ticket code is ${ticketCode}. Please screenshot this for your records. Ref: ${reference.reference}`,
         duration: 900000,
     });
-    // Here you would typically save the transaction to your database
     console.log(reference);
-    setIsProcessing(false);
     setOpen(false); // Close the dialog on success
+    setIsProcessing(false);
   };
 
   const onClose = () => {
@@ -84,6 +82,8 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   const initializePayment = usePaystackPayment(config);
 
   const handlePayment = () => {
+    if (isProcessing) return; // Prevent double-clicks
+
     if (!email || !name) {
         toast({
             title: "Missing Information",
@@ -92,14 +92,19 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         });
         return;
     }
-    if (isProcessing) return;
 
     setIsProcessing(true);
     initializePayment({onSuccess, onClose});
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={(isOpen) => {
+      // Reset processing state when dialog is closed manually
+      if (!isOpen) {
+        setIsProcessing(false);
+      }
+      setOpen(isOpen);
+    }}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
