@@ -58,9 +58,14 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   };
 
   const onSuccess = (reference: any) => {
+    // Generate a unique ticket code
+    const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
+    const uniqueId = reference.reference.slice(-6).toUpperCase();
+    const ticketCode = `${ticketPrefix}-${uniqueId}`;
+
     toast({
         title: "Payment Successful!",
-        description: `Your ticket purchase was successful. Reference: ${reference.reference}`,
+        description: `Your ticket code is ${ticketCode}. Ref: ${reference.reference}`,
     });
     // Here you would typically save the transaction to your database
     console.log(reference);
