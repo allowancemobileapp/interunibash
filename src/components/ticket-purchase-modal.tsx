@@ -26,6 +26,8 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [open, setOpen] = useState(false);
   const { toast } = useToast();
 
   const config = {
@@ -70,16 +72,18 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
     });
     // Here you would typically save the transaction to your database
     console.log(reference);
+    setIsProcessing(false);
+    setOpen(false); // Close the dialog on success
   };
 
   const onClose = () => {
     console.log('closed');
+    setIsProcessing(false);
   };
 
   const initializePayment = usePaystackPayment(config);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handlePayment = () => {
     if (!email || !name) {
         toast({
             title: "Missing Information",
@@ -88,11 +92,14 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         });
         return;
     }
+    if (isProcessing) return;
+
+    setIsProcessing(true);
     initializePayment({onSuccess, onClose});
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -101,7 +108,7 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
             You're purchasing the <span className="font-bold text-primary">{ticket.name}</span> for ₦{ticket.price.toLocaleString()}.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4">
             <div className="grid gap-2">
                 <Label htmlFor="name">Full Name</Label>
                 <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Burna Boy" required />
@@ -114,10 +121,10 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
                 <Label htmlFor="phone">Phone Number (Optional)</Label>
                 <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="08012345678" />
             </div>
-          <Button type="submit" className="w-full">
-            Pay ₦{ticket.price.toLocaleString()}
+          <Button onClick={handlePayment} disabled={isProcessing} className="w-full">
+            {isProcessing ? 'Processing...' : `Pay ₦${ticket.price.toLocaleString()}`}
           </Button>
-        </form>
+        </div>
       </DialogContent>
     </Dialog>
   );
