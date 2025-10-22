@@ -14,21 +14,21 @@
     },
     {
       "id": "promo-1",
-      "description": "Students playing basketball.",
-      "imageUrl": "https://images.unsplash.com/photo-1610971465010-18145a9fbc8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkZW50cyUyMGJhc2tldGJhbGx8ZW58MHx8fHwxNzYxMDQ3MDYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "students basketball"
+      "description": "Crowd at the event",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.34.56_95b02e9e.jpg",
+      "imageHint": "event crowd"
     },
     {
       "id": "promo-2",
-      "description": "A DJ performing on stage with lights.",
-      "imageUrl": "https://images.unsplash.com/photo-1574154808186-c3b1303a4b4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxESiUyMHN0YWdlfGVufDB8fHx8MTc2MTEzNDUxOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "DJ stage"
+      "description": "Event stage and lights",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.37.30_b016dbfc.jpg",
+      "imageHint": "event stage"
     },
     {
       "id": "promo-3",
-      "description": "Friends laughing and enjoying an outdoor event.",
-      "imageUrl": "https://images.unsplash.com/photo-1523379882969-04477e5c1e90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcmllbmRzJTIwZXZlbnR8ZW58MHx8fHwxNzYxMTM0NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "friends event"
+      "description": "People enjoying the event",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.38.17_4b297e8a.jpg",
+      "imageHint": "people event"
     },
     {
       "id": "artist-1",
