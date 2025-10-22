@@ -12,7 +12,7 @@ export default function TicketsPage() {
     const whatsAppNumber = "2348065554021";
 
     const createWhatsAppLink = (ticketName: string) => {
-        const message = `Hi, I'm interested in purchasing the "${ticketName}" ticket for the Inter-Uni Bash event.`;
+        const message = `Hi, I'm interested in purchasing the "${ticketName}" ticket for the ArenaVibeUnplugged event.`;
         return `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`;
     }
 

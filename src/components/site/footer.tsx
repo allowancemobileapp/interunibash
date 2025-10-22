@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-4">
           <div className="flex items-center space-x-2">
             <Ticket className="h-6 w-6 text-primary" />
-            <span className="font-bold text-lg font-headline">Inter-Uni Bash</span>
+            <span className="font-bold text-lg font-headline">ArenaVibeUnplugged</span>
           </div>
           <p className="text-muted-foreground text-sm">
             The ultimate university showdown.
@@ -59,7 +59,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border/40 py-6">
         <div className="container mx-auto px-4 md:px-8 lg:px-16 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Inter-Uni Bash. All Rights Reserved.
+          &copy; {new Date().getFullYear()} ArenaVibeUnplugged. All Rights Reserved.
         </div>
       </div>
     </footer>
