@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -5,16 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { Ticket } from "lucide-react";
 import { ticketTiers } from "@/lib/data";
+import { TicketPurchaseModal } from "@/components/ticket-purchase-modal";
 
 export default function TicketsPage() {
-    const whatsAppNumber = "2348065554021";
-
-    const createWhatsAppLink = (ticketName: string) => {
-        const message = `Hi, I'm interested in purchasing the "${ticketName}" ticket for the ArenaVibeUnplugged event.`;
-        return `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(message)}`;
-    }
 
     return (
         <div className="py-12 md:py-16">
@@ -45,12 +40,11 @@ export default function TicketsPage() {
                             <p className="mt-1">{ticket.perks.join(', ')}</p>
                             <p className="text-2xl font-bold mt-2">₦{ticket.price.toLocaleString()}</p>
                         </div>
-                        <Button asChild variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current mt-4">
-                            <Link href={createWhatsAppLink(ticket.name)} target="_blank" rel="noopener noreferrer">
-                                <Ticket className="mr-2 h-4 w-4" />
+                        <TicketPurchaseModal ticket={ticket}>
+                            <Button variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current mt-4">
                                 Buy Now
-                            </Link>
-                        </Button>
+                            </Button>
+                        </TicketPurchaseModal>
                     </Card>
                 ))}
             </div>
