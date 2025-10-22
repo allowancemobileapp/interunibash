@@ -65,7 +65,8 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
 
     toast({
         title: "Payment Successful!",
-        description: `Your ticket code is ${ticketCode}. Ref: ${reference.reference}`,
+        description: `Your ticket code is ${ticketCode}. Please screenshot this for your records. Ref: ${reference.reference}`,
+        duration: 900000,
     });
     // Here you would typically save the transaction to your database
     console.log(reference);
