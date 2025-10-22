@@ -1,6 +1,14 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { galleryImages } from '@/lib/data';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function GalleryPage() {
     return (
@@ -12,25 +20,40 @@ export default function GalleryPage() {
                 </p>
             </div>
 
-            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-                {galleryImages.map((image) => {
-                    const imageData = PlaceHolderImages.find(p => p.id === image.src);
-                    if (!imageData) return null;
+            <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full max-w-4xl mx-auto"
+            >
+                <CarouselContent>
+                    {galleryImages.map((image) => {
+                        const imageData = PlaceHolderImages.find(p => p.id === image.src);
+                        if (!imageData) return null;
 
-                    return (
-                        <div key={image.id} className="overflow-hidden rounded-lg break-inside-avoid">
-                           <Image
-                                src={imageData.imageUrl}
-                                alt={imageData.description}
-                                width={image.width}
-                                height={image.height}
-                                className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-                                data-ai-hint={image.hint}
-                            />
-                        </div>
-                    );
-                })}
-            </div>
+                        return (
+                            <CarouselItem key={image.id} className="md:basis-1/1">
+                                <div className="p-1">
+                                    <Card className="overflow-hidden">
+                                        <CardContent className="flex aspect-video items-center justify-center p-0 relative">
+                                            <Image
+                                                src={imageData.imageUrl}
+                                                alt={imageData.description}
+                                                fill
+                                                className="object-contain"
+                                                data-ai-hint={image.hint}
+                                            />
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            </CarouselItem>
+                        );
+                    })}
+                </CarouselContent>
+                <CarouselPrevious className="hidden sm:flex" />
+                <CarouselNext className="hidden sm:flex" />
+            </Carousel>
         </div>
     );
 }

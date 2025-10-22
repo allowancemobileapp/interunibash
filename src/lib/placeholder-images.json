@@ -3,31 +3,31 @@
     {
       "id": "hero-bg",
       "description": "A vibrant, energetic shot of a crowd at a music festival at night.",
-      "imageUrl": "https://picsum.photos/seed/hero-bg/1920/1080",
+      "imageUrl": "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZXN0aXZhbCUyMGNyb3dkfGVufDB8fHx8MTc2MTA4MTgwMXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "festival crowd"
     },
     {
       "id": "split-image-1",
       "description": "A man signing an autograph for a fan in a crowd.",
-      "imageUrl": "https://picsum.photos/seed/split1/800/900",
+      "imageUrl": "https://images.unsplash.com/photo-1543079516-9e32af4a33e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhcnRpc3QlMjBmYW58ZW58MHx8fHwxNzYxMTM0NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "artist fan"
     },
     {
       "id": "promo-1",
       "description": "Students playing basketball.",
-      "imageUrl": "https://picsum.photos/seed/promo1/1080/720",
+      "imageUrl": "https://images.unsplash.com/photo-1610971465010-18145a9fbc8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkZW50cyUyMGJhc2tldGJhbGx8ZW58MHx8fHwxNzYxMDQ3MDYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "students basketball"
     },
     {
       "id": "promo-2",
       "description": "A DJ performing on stage with lights.",
-      "imageUrl": "https://picsum.photos/seed/promo2/1080/720",
+      "imageUrl": "https://images.unsplash.com/photo-1574154808186-c3b1303a4b4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxESiUyMHN0YWdlfGVufDB8fHx8MTc2MTEzNDUxOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "DJ stage"
     },
     {
       "id": "promo-3",
       "description": "Friends laughing and enjoying an outdoor event.",
-      "imageUrl": "https://picsum.photos/seed/promo3/1080/720",
+      "imageUrl": "https://images.unsplash.com/photo-1523379882969-04477e5c1e90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcmllbmRzJTIwZXZlbnR8ZW58MHx8fHwxNzYxMTM0NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "friends event"
     },
     {
@@ -69,44 +69,26 @@
     {
       "id": "about-organizers",
       "description": "Logos of ArenaVibes and Detty December",
-      "imageUrl": "https://picsum.photos/seed/logos/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1760138270903-d95903188730?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3N8ZW58MHx8fHwxNzYxMTM0NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "company logos"
     },
     {
       "id": "gallery-1",
-      "description": "Photo from a past event, showing people dancing.",
-      "imageUrl": "https://picsum.photos/seed/gallery1/600/800",
-      "imageHint": "people dancing"
+      "description": "Crowd at the event",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.34.56_95b02e9e.jpg",
+      "imageHint": "event crowd"
     },
     {
       "id": "gallery-2",
-      "description": "Photo from a past event, a football match.",
-      "imageUrl": "https://picsum.photos/seed/gallery2/800/600",
-      "imageHint": "football match"
+      "description": "Event stage and lights",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.37.30_b016dbfc.jpg",
+      "imageHint": "event stage"
     },
     {
       "id": "gallery-3",
-      "description": "A wide shot of the event venue.",
-      "imageUrl": "https://picsum.photos/seed/gallery3/800/600",
-      "imageHint": "event venue"
-    },
-    {
-      "id": "gallery-4",
-      "description": "Close up of an artist performing.",
-      "imageUrl": "https://picsum.photos/seed/gallery4/600/800",
-      "imageHint": "artist performing"
-    },
-    {
-      "id": "gallery-5",
-      "description": "Attendees posing for a photo.",
-      "imageUrl": "https://picsum.photos/seed/gallery5/800/600",
-      "imageHint": "friends posing"
-    },
-    {
-      "id": "gallery-6",
-      "description": "Colorful stage lights.",
-      "imageUrl": "https://picsum.photos/seed/gallery6/600/800",
-      "imageHint": "stage lights"
+      "description": "People enjoying the event",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.38.17_4b297e8a.jpg",
+      "imageHint": "people event"
     }
   ]
 }

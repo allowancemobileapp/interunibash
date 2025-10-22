@@ -59,10 +59,7 @@ export const schedule: ScheduleDay[] = [
 ];
 
 export const galleryImages: GalleryImage[] = [
-    { id: '1', src: 'gallery-1', alt: 'People dancing', width: 600, height: 800, hint: 'people dancing' },
-    { id: '2', src: 'gallery-2', alt: 'Football match', width: 800, height: 600, hint: 'football match' },
-    { id: '3', src: 'gallery-3', alt: 'Event venue', width: 800, height: 600, hint: 'event venue' },
-    { id: '4', src: 'gallery-4', alt: 'Artist performing', width: 600, height: 800, hint: 'artist performing' },
-    { id: '5', src: 'gallery-5', alt: 'Friends posing', width: 800, height: 600, hint: 'friends posing' },
-    { id: '6', src: 'gallery-6', alt: 'Stage lights', width: 600, height: 800, hint: 'stage lights' },
+    { id: '1', src: 'gallery-1', alt: 'Crowd at the event', width: 1280, height: 720, hint: 'event crowd' },
+    { id: '2', src: 'gallery-2', alt: 'Event stage and lights', width: 1280, height: 720, hint: 'event stage' },
+    { id: '3', src: 'gallery-3', alt: 'People enjoying the event', width: 1280, height: 720, hint: 'people event' },
 ]
