@@ -89,6 +89,24 @@
       "description": "People enjoying the event",
       "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2009.38.17_4b297e8a.jpg",
       "imageHint": "people event"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Performer on stage with lights",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2013.46.30_7a610cbf.jpg",
+      "imageHint": "stage performer"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Audience watching a show",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2013.51.04_065ee844.jpg",
+      "imageHint": "event audience"
+    },
+    {
+      "id": "gallery-6",
+      "description": "DJ performing for a crowd",
+      "imageUrl": "https://crwwlgwjdclhvwqwspoa.supabase.co/storage/v1/object/public/inter-uni-bash/WhatsApp%20Image%202025-10-22%20at%2015.41.22_96797e82.jpg",
+      "imageHint": "dj crowd"
     }
   ]
 }

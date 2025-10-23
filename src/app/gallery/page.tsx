@@ -1,14 +1,8 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { galleryImages } from '@/lib/data';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 export default function GalleryPage() {
     return (
@@ -20,40 +14,41 @@ export default function GalleryPage() {
                 </p>
             </div>
 
-            <Carousel
-                opts={{
-                    align: "start",
-                    loop: true,
-                }}
-                className="w-full max-w-4xl mx-auto"
-            >
-                <CarouselContent>
-                    {galleryImages.map((image) => {
-                        const imageData = PlaceHolderImages.find(p => p.id === image.src);
-                        if (!imageData) return null;
+            <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-fr gap-4">
+                {galleryImages.map((image, index) => {
+                    const imageData = PlaceHolderImages.find(p => p.id === image.src);
+                    if (!imageData) return null;
 
-                        return (
-                            <CarouselItem key={image.id} className="md:basis-1/1">
-                                <div className="p-1">
-                                    <Card className="overflow-hidden">
-                                        <CardContent className="flex aspect-video items-center justify-center p-0 relative">
-                                            <Image
-                                                src={imageData.imageUrl}
-                                                alt={imageData.description}
-                                                fill
-                                                className="object-contain"
-                                                data-ai-hint={image.hint}
-                                            />
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        );
-                    })}
-                </CarouselContent>
-                <CarouselPrevious className="hidden sm:flex" />
-                <CarouselNext className="hidden sm:flex" />
-            </Carousel>
+                    return (
+                        <div
+                          key={image.id}
+                          className={cn(
+                            'group relative',
+                            // Spanning rules for a 6-image layout
+                            index === 0 && 'col-span-2 row-span-2', // First image is larger
+                            index === 3 && 'md:col-span-2',
+                            index === 4 && 'md:col-span-2'
+                          )}
+                        >
+                            <Card className="overflow-hidden h-full w-full">
+                                <CardContent className="p-0 h-full">
+                                    <div className="relative h-full w-full aspect-[4/3] sm:aspect-video">
+                                        <Image
+                                            src={imageData.imageUrl}
+                                            alt={imageData.description}
+                                            fill
+                                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                            data-ai-hint={image.hint}
+                                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }

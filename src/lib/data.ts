@@ -63,4 +63,7 @@ export const galleryImages: GalleryImage[] = [
     { id: '1', src: 'gallery-1', alt: 'Crowd at the event', width: 1280, height: 720, hint: 'event crowd' },
     { id: '2', src: 'gallery-2', alt: 'Event stage and lights', width: 1280, height: 720, hint: 'event stage' },
     { id: '3', src: 'gallery-3', alt: 'People enjoying the event', width: 1280, height: 720, hint: 'people event' },
+    { id: '4', src: 'gallery-4', alt: 'Performer on stage', width: 1280, height: 720, hint: 'stage performer' },
+    { id: '5', src: 'gallery-5', alt: 'Audience watching a show', width: 1280, height: 720, hint: 'event audience' },
+    { id: '6', src: 'gallery-6', alt: 'DJ performing for a crowd', width: 1280, height: 720, hint: 'dj crowd' },
 ]
