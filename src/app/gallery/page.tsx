@@ -9,12 +9,9 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-24">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold font-headline">Event Gallery</h1>
-                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-                    Relive the best moments from past events.
-                </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-fr gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {galleryImages.map((image, index) => {
                     const imageData = PlaceHolderImages.find(p => p.id === image.src);
                     if (!imageData) return null;
@@ -24,20 +21,20 @@ export default function GalleryPage() {
                           key={image.id}
                           className={cn(
                             'group relative',
-                            // Spanning rules for a 6-image layout
-                            index === 0 && 'col-span-2 row-span-2', // First image is larger
+                            index === 0 && 'col-span-2 row-span-2',
                             index === 3 && 'md:col-span-2',
                             index === 4 && 'md:col-span-2'
                           )}
                         >
                             <Card className="overflow-hidden h-full w-full">
                                 <CardContent className="p-0 h-full">
-                                    <div className="relative h-full w-full aspect-[4/3] sm:aspect-video">
+                                    <div className="relative h-full w-full">
                                         <Image
                                             src={imageData.imageUrl}
                                             alt={imageData.description}
-                                            fill
-                                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                            width={image.width}
+                                            height={image.height}
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105 w-full h-auto"
                                             data-ai-hint={image.hint}
                                             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                                         />
