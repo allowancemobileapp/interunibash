@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { TicketTier } from "@/lib/types";
-import { ReactNode, useState, useEffect, useMemo } from "react";
+import { ReactNode, useState, useEffect, useMemo, useCallback } from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -30,6 +30,26 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   const [isProcessing, setIsProcessing] = useState(false);
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
+
+  const onSuccess = useCallback((reference: any) => {
+    const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
+    const uniqueId = reference.reference.slice(-6).toUpperCase();
+    const ticketCode = `${ticketPrefix}-${uniqueId}`;
+
+    toast({
+        title: "Payment Successful!",
+        description: `Your ticket code is ${ticketCode}. Please screenshot this for your records. Ref: ${reference.reference}`,
+        duration: 900000,
+    });
+    console.log(reference);
+    setOpen(false);
+    setIsProcessing(false);
+  }, [ticket.name, toast]);
+
+  const onClose = useCallback(() => {
+    console.log('closed');
+    setIsProcessing(false);
+  }, []);
 
   const config = useMemo(() => ({
       reference: (new Date()).getTime().toString(),
@@ -59,25 +79,6 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         ]
       }
   }), [email, name, phone, ticket.price, ticket.name]);
-
-  const onSuccess = (reference: any) => {
-    const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
-    const uniqueId = reference.reference.slice(-6).toUpperCase();
-    const ticketCode = `${ticketPrefix}-${uniqueId}`;
-
-    toast({
-        title: "Payment Successful!",
-        description: `Your ticket code is ${ticketCode}. Please screenshot this for your records. Ref: ${reference.reference}`,
-        duration: 900000,
-    });
-    console.log(reference);
-    setOpen(false);
-  };
-
-  const onClose = () => {
-    console.log('closed');
-    setIsProcessing(false);
-  };
 
   const initializePayment = usePaystackPayment(config);
 
