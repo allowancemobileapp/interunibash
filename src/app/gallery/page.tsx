@@ -10,6 +10,8 @@ import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogTitle,
 } from "@/components/ui/dialog";
 
 export default function GalleryPage() {
@@ -75,6 +77,8 @@ export default function GalleryPage() {
 
             <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && closeImage()}>
                 <DialogContent className="max-w-4xl p-2 bg-transparent border-none shadow-none">
+                    <DialogTitle className="sr-only">{selectedAlt}</DialogTitle>
+                    <DialogDescription className="sr-only">A full-screen view of the gallery image: {selectedAlt}</DialogDescription>
                     {selectedImage && (
                         <Image
                             src={selectedImage}
