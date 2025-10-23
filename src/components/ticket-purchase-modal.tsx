@@ -16,6 +16,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from "lucide-react";
 
 interface TicketPurchaseModalProps {
     ticket: TicketTier;
@@ -70,7 +71,7 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         duration: 900000,
     });
     console.log(reference);
-    setOpen(false); // Close the dialog on success
+    setOpen(false);
     setIsProcessing(false);
   };
 
@@ -81,8 +82,9 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
 
   const initializePayment = usePaystackPayment(config);
 
-  const handlePayment = () => {
-    if (isProcessing) return; // Prevent double-clicks
+  const handlePayment = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (isProcessing) return;
 
     if (!email || !name) {
         toast({
@@ -97,14 +99,19 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
     initializePayment({onSuccess, onClose});
   }
 
-  return (
-    <Dialog open={open} onOpenChange={(isOpen) => {
-      // Reset processing state when dialog is closed manually
+  const handleOpenChange = (isOpen: boolean) => {
       if (!isOpen) {
+        // Reset state when dialog is closed
         setIsProcessing(false);
+        setEmail('');
+        setName('');
+        setPhone('');
       }
       setOpen(isOpen);
-    }}>
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -127,7 +134,7 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
                 <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="08012345678" />
             </div>
           <Button onClick={handlePayment} disabled={isProcessing} className="w-full">
-            {isProcessing ? 'Processing...' : `Pay ₦${ticket.price.toLocaleString()}`}
+            {isProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : `Pay ₦${ticket.price.toLocaleString()}`}
           </Button>
         </div>
       </DialogContent>
