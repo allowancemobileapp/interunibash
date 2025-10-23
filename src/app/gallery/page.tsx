@@ -11,30 +11,33 @@ export default function GalleryPage() {
                 <h1 className="text-4xl md:text-5xl font-bold font-headline">Event Gallery</h1>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {galleryImages.map((image, index) => {
                     const imageData = PlaceHolderImages.find(p => p.id === image.src);
                     if (!imageData) return null;
+
+                    // Determine if the image is landscape or portrait
+                    const isLandscape = image.width > image.height;
 
                     return (
                         <div
                           key={image.id}
                           className={cn(
                             'group relative',
-                            index === 0 && 'col-span-2 row-span-2',
-                            index === 3 && 'md:col-span-2',
-                            index === 4 && 'md:col-span-2'
+                            // Make specific images span more columns, especially landscape ones
+                            (isLandscape && index === 0) && 'md:col-span-2',
+                            (isLandscape && index === 3) && 'md:col-span-2',
+                            (isLandscape && index === 4) && 'md:col-span-2'
                           )}
                         >
                             <Card className="overflow-hidden h-full w-full">
                                 <CardContent className="p-0 h-full">
-                                    <div className="relative h-full w-full">
+                                    <div className="relative w-full" style={{ paddingBottom: `${(image.height / image.width) * 100}%` }}>
                                         <Image
                                             src={imageData.imageUrl}
                                             alt={imageData.description}
-                                            width={image.width}
-                                            height={image.height}
-                                            className="object-cover transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                                            layout="fill"
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
                                             data-ai-hint={image.hint}
                                             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                                         />
