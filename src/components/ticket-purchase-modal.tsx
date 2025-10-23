@@ -10,13 +10,73 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { TicketTier } from "@/lib/types";
-import { ReactNode, useState, useEffect, useMemo, useCallback } from "react";
+import { ReactNode, useState, useMemo, useCallback } from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+
+// This new component will contain all the Paystack logic.
+// It is only rendered when the user is ready to pay, preventing re-initialization issues.
+const PaystackButton = ({ email, name, phone, ticket }: { email: string; name: string; phone: string; ticket: TicketTier }) => {
+    const { toast } = useToast();
+    const [isProcessing, setIsProcessing] = useState(false);
+
+    const config = useMemo(() => ({
+        reference: (new Date()).getTime().toString(),
+        email,
+        amount: ticket.price * 100, // Amount in kobo
+        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || '',
+        metadata: {
+          name,
+          phone,
+          ticketName: ticket.name,
+        }
+    }), [email, name, phone, ticket.price, ticket.name]);
+
+    const onSuccess = useCallback((reference: any) => {
+        const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
+        const uniqueId = reference.reference.slice(-6).toUpperCase();
+        const ticketCode = `${ticketPrefix}-${uniqueId}`;
+
+        toast({
+            title: "Payment Successful!",
+            description: `Your ticket code is ${ticketCode}. Please screenshot this for your records. Ref: ${reference.reference}`,
+            duration: 900000,
+        });
+        setIsProcessing(false);
+    }, [ticket.name, toast]);
+
+    const onClose = useCallback(() => {
+        setIsProcessing(false);
+    }, []);
+
+    const initializePayment = usePaystackPayment(config);
+
+    const handlePayment = () => {
+        if (!email || !name) {
+            toast({
+                title: "Missing Information",
+                description: "Please fill out your name and email.",
+                variant: "destructive"
+            });
+            return;
+        }
+        if (isProcessing) return;
+        
+        setIsProcessing(true);
+        initializePayment({onSuccess, onClose});
+    }
+
+    return (
+        <Button onClick={handlePayment} disabled={isProcessing} className="w-full">
+            {isProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : `Pay ₦${ticket.price.toLocaleString()}`}
+        </Button>
+    )
+}
+
 
 interface TicketPurchaseModalProps {
     ticket: TicketTier;
@@ -27,81 +87,11 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [isProcessing, setIsProcessing] = useState(false);
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
-
-  const onSuccess = useCallback((reference: any) => {
-    const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
-    const uniqueId = reference.reference.slice(-6).toUpperCase();
-    const ticketCode = `${ticketPrefix}-${uniqueId}`;
-
-    toast({
-        title: "Payment Successful!",
-        description: `Your ticket code is ${ticketCode}. Please screenshot this for your records. Ref: ${reference.reference}`,
-        duration: 900000,
-    });
-    console.log(reference);
-    setOpen(false);
-    setIsProcessing(false);
-  }, [ticket.name, toast]);
-
-  const onClose = useCallback(() => {
-    console.log('closed');
-    setIsProcessing(false);
-  }, []);
-
-  const config = useMemo(() => ({
-      reference: (new Date()).getTime().toString(),
-      email,
-      amount: ticket.price * 100, // Amount in kobo
-      publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || '',
-      metadata: {
-        name,
-        phone,
-        ticketName: ticket.name,
-        custom_fields: [
-            {
-              display_name: "Ticket Type",
-              variable_name: "ticket_type",
-              value: ticket.name
-            },
-            {
-              display_name: "Name",
-              variable_name: "name",
-              value: name
-            },
-            {
-              display_name: "Phone Number",
-              variable_name: "phone",
-              value: phone
-            }
-        ]
-      }
-  }), [email, name, phone, ticket.price, ticket.name]);
-
-  const initializePayment = usePaystackPayment(config);
-
-  const handlePayment = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (!email || !name) {
-        toast({
-            title: "Missing Information",
-            description: "Please fill out your name and email.",
-            variant: "destructive"
-        });
-        return;
-    }
-    if (isProcessing) return;
-    
-    setIsProcessing(true);
-    initializePayment({onSuccess, onClose});
-  }
-
+  
   const handleOpenChange = (isOpen: boolean) => {
       if (!isOpen) {
-        // Reset state when dialog is closed
-        setIsProcessing(false);
         setEmail('');
         setName('');
         setPhone('');
@@ -109,6 +99,8 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
       setOpen(isOpen);
   }
 
+  // The button is now inside the form and will trigger the Paystack logic.
+  // The Paystack logic itself is encapsulated in the PaystackButton component.
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -132,9 +124,8 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
                 <Label htmlFor="phone">Phone Number (Optional)</Label>
                 <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="08012345678" />
             </div>
-          <Button onClick={handlePayment} disabled={isProcessing} className="w-full">
-            {isProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : `Pay ₦${ticket.price.toLocaleString()}`}
-          </Button>
+            {/* The PaystackButton component is only rendered here, ensuring the hook is isolated */}
+            <PaystackButton email={email} name={name} phone={phone} ticket={ticket} />
         </div>
       </DialogContent>
     </Dialog>
