@@ -7,7 +7,6 @@ import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ticketTiers } from "@/lib/data";
-import { TicketPurchaseModal } from "@/components/ticket-purchase-modal";
 
 export default function TicketsPage() {
 
@@ -40,11 +39,9 @@ export default function TicketsPage() {
                             <p className="mt-1">{ticket.perks.join(', ')}</p>
                             <p className="text-2xl font-bold mt-2">₦{ticket.price.toLocaleString()}</p>
                         </div>
-                        <TicketPurchaseModal ticket={ticket}>
-                            <Button variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current mt-4">
-                                Buy Now
-                            </Button>
-                        </TicketPurchaseModal>
+                        <Button variant="outline" size="sm" className="bg-transparent border-current text-current hover:bg-white/20 hover:text-current mt-4" asChild>
+                            <Link href={`/checkout?ticketId=${ticket.id}`}>Buy Now</Link>
+                        </Button>
                     </Card>
                 ))}
             </div>
