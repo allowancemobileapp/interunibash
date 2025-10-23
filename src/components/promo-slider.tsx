@@ -35,9 +35,6 @@ export function PromoSlider() {
                         className="object-cover transition-transform duration-300 hover:scale-105"
                         data-ai-hint={image.imageHint}
                       />
-                       <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                        <p className="text-white font-semibold">{image.description}</p>
-                      </div>
                     </CardContent>
                   </Card>
                 </div>
