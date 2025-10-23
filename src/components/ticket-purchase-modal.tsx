@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { TicketTier } from "@/lib/types";
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, useMemo } from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -28,11 +28,10 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [startPayment, setStartPayment] = useState(false);
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
 
-  const config = {
+  const config = useMemo(() => ({
       reference: (new Date()).getTime().toString(),
       email,
       amount: ticket.price * 100, // Amount in kobo
@@ -59,7 +58,7 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
             }
         ]
       }
-  };
+  }), [email, name, phone, ticket.price, ticket.name]);
 
   const onSuccess = (reference: any) => {
     const ticketPrefix = ticket.name.substring(0, 2).toUpperCase();
@@ -73,23 +72,14 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
     });
     console.log(reference);
     setOpen(false);
-    setIsProcessing(false);
-    setStartPayment(false);
   };
 
   const onClose = () => {
     console.log('closed');
     setIsProcessing(false);
-    setStartPayment(false);
   };
 
   const initializePayment = usePaystackPayment(config);
-
-  useEffect(() => {
-    if (startPayment) {
-        initializePayment({onSuccess, onClose});
-    }
-  }, [startPayment]);
 
   const handlePayment = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -101,15 +91,16 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         });
         return;
     }
+    if (isProcessing) return;
+    
     setIsProcessing(true);
-    setStartPayment(true);
+    initializePayment({onSuccess, onClose});
   }
 
   const handleOpenChange = (isOpen: boolean) => {
       if (!isOpen) {
         // Reset state when dialog is closed
         setIsProcessing(false);
-        setStartPayment(false);
         setEmail('');
         setName('');
         setPhone('');
