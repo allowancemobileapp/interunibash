@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { TicketTier } from "@/lib/types";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -28,6 +28,7 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [startPayment, setStartPayment] = useState(false);
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
 
@@ -73,19 +74,25 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
     console.log(reference);
     setOpen(false);
     setIsProcessing(false);
+    setStartPayment(false);
   };
 
   const onClose = () => {
     console.log('closed');
     setIsProcessing(false);
+    setStartPayment(false);
   };
 
   const initializePayment = usePaystackPayment(config);
 
+  useEffect(() => {
+    if (startPayment) {
+        initializePayment({onSuccess, onClose});
+    }
+  }, [startPayment]);
+
   const handlePayment = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (isProcessing) return;
-
     if (!email || !name) {
         toast({
             title: "Missing Information",
@@ -94,15 +101,15 @@ export function TicketPurchaseModal({ ticket, children }: TicketPurchaseModalPro
         });
         return;
     }
-
     setIsProcessing(true);
-    initializePayment({onSuccess, onClose});
+    setStartPayment(true);
   }
 
   const handleOpenChange = (isOpen: boolean) => {
       if (!isOpen) {
         // Reset state when dialog is closed
         setIsProcessing(false);
+        setStartPayment(false);
         setEmail('');
         setName('');
         setPhone('');
